@@ -1,0 +1,51 @@
+{
+  "name": "polymer-date-picker",
+  "authors": [
+    "Christophe Clapp <christophe@christophe.cc>",
+    "Christopher Hartmann herenow2121@gmail.com"
+  ],
+  "description": "A Polymer interpretation of Dan Grossman's awesome bootstrap-daterangepicker. Oirginal source here https://github.com/christopheclc/polymer-date-picker",
+  "keywords": [
+    "polymer",
+    "date",
+    "range",
+    "picker"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "docs"
+  ],
+  "dependencies": {
+    "moment": "~2.8.1",
+    "platform": "Polymer/platform#>=0.4.0",
+    "core-icon": "Polymer/core-icon#>=0.4.0",
+    "moment-timezone": "~0.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tammuz/gotoclassroom-date-picker.git"
+  },
+  "main": [
+    "polymer-date-picker-calendar.css",
+    "polymer-date-picker-calendar.html",
+    "polymer-date-picker-container.css",
+    "polymer-date-picker.css",
+    "polymer-date-picker.html"
+  ],
+  "homepage": "https://github.com/tammuz/gotoclassroom-date-picker",
+  "_release": "aa23bf2ae7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "aa23bf2ae786b4f999c4f3784a4ddb62a85bed3f"
+  },
+  "_source": "git://github.com/tammuz/gotoclassroom-date-picker.git",
+  "_target": "*",
+  "_originalSource": "tammuz/gotoclassroom-date-picker"
+}

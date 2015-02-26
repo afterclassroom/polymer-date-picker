@@ -1,0 +1,45 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="polymer-date-picker.html">
+<!--container with input trigger-->
+<polymer-element name="polymer-date-picker-trigger" attributes="range getSelectedDate selectedDate startDate endDate halign opened formatDate">
+  <template>
+    <style>
+      input.date {border: 1px solid #DDDDDD; background-color: #EEEEEE; color:#555555; min-width: 200px; padding: 8px 10px; margin: 0px; border-radius: 4px; width: 95% !important; margin-left: 20px;}
+      input.date:hover { cursor:pointer; border: 1px solid #44B4E4; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6); }
+      span.add-on{
+        margin-top: 8px;
+      }
+    </style>
+    <template if="{{range != null}}">
+      <polymer-date-picker id="datePicker" range startDate="{{startDate}}" endDate="{{endDate}}" relatedTarget="{{$.triggerRange}}" opened="{{opened}}" selected="custom" showRanges="true" timezone="America/New_York"></polymer-date-picker>
+      <span class="add-on pull-left"><span class="arrow"></span><i class="fa fa-calendar"></i></span>
+      <input id="triggerRange" value="{{startDate}} to {{endDate}}" on-click="{{toggle}}" readonly class="form-control date">
+    </template>
+    <template if="{{range == null}}">
+      <polymer-date-picker id="datePicker" selectedDate="{{selectedDate}}" relatedTarget="{{$.trigger}}" opened="{{opened}}"></polymer-date-picker>
+      <span class="add-on pull-left"><span class="arrow"></span><i class="fa fa-calendar"></i></span>
+      <input id="trigger" value="{{formatSelectedDate}}" on-click="{{toggle}}" readonly class="form-control date">
+    </template>
+  </template>
+  <script>
+    Polymer('polymer-date-picker-trigger', {
+      created: function(){
+        if(!this.formatDate){
+          this.formatDate = 'YYYY-MM-DD';
+        }
+      },
+      toggle: function() {
+          this.$.datePicker.toggle();
+      },
+      open: function() {
+          this.$.datePicker.open();
+      },
+      selectedDateChanged: function(){
+        var formatDateStr = moment(this.selectedDate).format(this.formatDate);
+        this.formatSelectedDate = formatDateStr;
+        this.getSelectedDate    = formatDateStr;
+      }
+    });
+
+  </script>
+</polymer-element>
